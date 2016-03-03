@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 
 using Repository.Infrastructure;
 
@@ -13,8 +14,13 @@ namespace Repository.Mock
             this.accessor = accessor;
         }
 
-        public IUnitOfWork Create(string name = null, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
+        public IUnitOfWork Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
+
             this.accessor.Context = name;
             return new UnitOfWork();
         }

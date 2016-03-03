@@ -4,6 +4,6 @@ namespace Repository.Infrastructure
 {
     public interface IUnitOfWorkProvider
     {
-        IUnitOfWork Create(string name = null, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
+        IUnitOfWork Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
     }
 }
