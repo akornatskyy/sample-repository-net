@@ -21,8 +21,7 @@ namespace Repository.Mock
                 throw new ArgumentNullException("name");
             }
 
-            this.accessor.Context = name;
-            return new UnitOfWork();
+            return new UnitOfWork(name, this.accessor);
         }
     }
 }
