@@ -1,9 +1,10 @@
 ﻿using System.Data;
+using System.Threading.Tasks;
 
 namespace Repository.Infrastructure
 {
     public interface IUnitOfWorkProvider
     {
-        IUnitOfWork Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
+        Task<IUnitOfWork> Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted);
     }
 }

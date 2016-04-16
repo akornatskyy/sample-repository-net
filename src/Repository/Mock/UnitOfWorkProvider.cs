@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Threading.Tasks;
 
 using Repository.Infrastructure;
 
@@ -14,14 +15,14 @@ namespace Repository.Mock
             this.accessor = accessor;
         }
 
-        public IUnitOfWork Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
+        public Task<IUnitOfWork> Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
             if (name == null)
             {
                 throw new ArgumentNullException("name");
             }
 
-            return new UnitOfWork(name, this.accessor);
+            return Task.FromResult<IUnitOfWork>(new UnitOfWork(name, this.accessor));
         }
     }
 }
