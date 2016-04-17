@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Reflection;
 
 using Microsoft.Practices.Unity;
 
 using Repository.Infrastructure;
+using Repository.Interface;
 
 namespace Repository
 {
@@ -12,10 +14,10 @@ namespace Repository
 
         public static IUnityContainer Register(string strategy)
         {
-            var mi = typeof(UnityConfig).GetMethod("Register" + strategy);
+            var mi = typeof(UnityConfig).GetMethod("Register" + strategy, BindingFlags.NonPublic | BindingFlags.Static);
             if (mi == null)
             {
-                throw new ArgumentOutOfRangeException("strategy");
+                throw new ArgumentOutOfRangeException("strategy", strategy, null);
             }
 
             var c = new UnityContainer();
@@ -23,10 +25,11 @@ namespace Repository
             return c;
         }
 
-        public static void RegisterMock(IUnityContainer c)
+        private static void RegisterMock(IUnityContainer c)
         {
             c.RegisterType<ContextAccessor>(new HierarchicalLifetimeManager());
             c.RegisterType<IUnitOfWorkProvider, Mock.UnitOfWorkProvider>(new HierarchicalLifetimeManager());
+            c.RegisterType<IMembershipRepository, Mock.MembershipRepository>(new HierarchicalLifetimeManager());
         }
     }
 }
