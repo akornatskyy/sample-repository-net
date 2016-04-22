@@ -83,6 +83,10 @@
   <ItemGroup>
     <Content Include="Sql\Patches\001 - Schema.sql" />
     <Content Include="Sql\Patches\002 - User.sql" />
+    <Content Include="Sql\Patches\003 - Address.sql" />
+    <Content Include="Sql\Patches\004 - Gender.sql" />
+    <Content Include="Sql\Patches\005 - Person.sql" />
+    <Content Include="Sql\Programmability\AddUser.sql" />
     <Content Include="Sql\Programmability\HasUser.sql" />
   </ItemGroup>
   <ItemGroup>
