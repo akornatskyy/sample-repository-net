@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Repository.Infrastructure;
 
-namespace Repository.Sql
+namespace Repository.Sql.Infrastructure
 {
     public sealed class UnitOfWorkProvider : IUnitOfWorkProvider
     {

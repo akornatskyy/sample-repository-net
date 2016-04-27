@@ -2,7 +2,7 @@
 
 using Repository.Infrastructure;
 
-namespace Repository.Sql
+namespace Repository.Sql.Infrastructure
 {
     public sealed class UnitOfWork : AbstractUnitOfWork
     {

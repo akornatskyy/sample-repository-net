@@ -40,7 +40,8 @@ namespace Repository
 
         private static void RegisterSql(IUnityContainer c)
         {
-            c.RegisterType<IUnitOfWorkProvider, Sql.UnitOfWorkProvider>(new HierarchicalLifetimeManager());
+            c.RegisterType<IUnitOfWorkProvider, Sql.Infrastructure.UnitOfWorkProvider>(new HierarchicalLifetimeManager());
+            c.RegisterType<IMembershipRepository, Sql.MembershipRepository>(new HierarchicalLifetimeManager());
         }
     }
 }
