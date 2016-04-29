@@ -4,11 +4,11 @@
 
 A simple repository pattern for .NET.
 
-## Setup
+## Setup Database
 
-### SQL Server Database
+Create *sample* database. Add users *sample-ro* and *sample-rw*.
 
-Create *sample* database. Add users *sample-ro* and *sample-rw*. Apply scripts.
+SQL Server:
 
 	cd build
-	DbUp.cmd
+	DbUp.SqlServer.cmd
