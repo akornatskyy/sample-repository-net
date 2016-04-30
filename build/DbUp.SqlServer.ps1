@@ -18,7 +18,7 @@ If (-Not $server)
 }
 
 $scriptRoot = Split-Path -parent $MyInvocation.MyCommand.Definition
-Add-Type -Path (Join-Path -Path $scriptRoot '.\DbUp.dll')
+Add-Type -Path (Join-Path -Path $scriptRoot '.\lib\DbUp.dll')
 $scriptRoot = Join-Path -Path $scriptRoot -ChildPath "..\src\Repository\Sql"
 
 function Database($dbUp)
