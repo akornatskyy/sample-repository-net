@@ -12,3 +12,8 @@ SQL Server:
 
 	cd build
 	DbUp.SqlServer.cmd
+
+PostgreSQL:
+
+	cd build
+	DbUp.Postgresql.cmd
