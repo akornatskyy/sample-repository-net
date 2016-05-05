@@ -75,6 +75,10 @@
     </Compile>
     <Compile Include="Infrastructure\AbstractUnitOfWork.cs" />
     <Compile Include="Infrastructure\ContextAccessor.cs" />
+    <Compile Include="Infrastructure\Data\DbContext.cs" />
+    <Compile Include="Infrastructure\Data\IDbConnectionFactory.cs" />
+    <Compile Include="Infrastructure\Data\UnitOfWork.cs" />
+    <Compile Include="Infrastructure\Data\UnitOfWorkProvider.cs" />
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\IUnitOfWorkProvider.cs" />
     <Compile Include="Interface\IMembershipRepository.cs" />
@@ -83,10 +87,8 @@
     <Compile Include="Mock\UnitOfWorkProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sql\Infrastructure\DbContext.cs" />
+    <Compile Include="Sql\Infrastructure\SqlConnectionFactory.cs" />
     <Compile Include="Sql\MembershipRepository.cs" />
-    <Compile Include="Sql\Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Sql\Infrastructure\UnitOfWorkProvider.cs" />
     <Compile Include="UnityConfig.cs" />
   </ItemGroup>
   <ItemGroup>
