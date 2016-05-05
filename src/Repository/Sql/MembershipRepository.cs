@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 
 using Repository.Infrastructure;
+using Repository.Infrastructure.Data;
 using Repository.Interface;
-using Repository.Sql.Infrastructure;
 
 namespace Repository.Sql
 {
@@ -28,12 +28,12 @@ namespace Repository.Sql
 
         public Task<int> HasUser(string email)
         {
-            return this.Context.SpScalarAsync<int>("Membership.HasUser", new { Email = email });
+            return this.Context.SpFirstOrDefaultAsync<int>("Membership.HasUser", new { email });
         }
 
         public Task<int> AddUser(string email)
         {
-            return this.Context.SpScalarAsync<int>("Membership.AddUser", new { Email = email });
+            return this.Context.SpFirstOrDefaultAsync<int>("Membership.AddUser", new { email });
         }
     }
 }

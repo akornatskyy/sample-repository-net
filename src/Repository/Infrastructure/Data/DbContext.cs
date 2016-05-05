@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 using Dapper;
 
-namespace Repository.Sql.Infrastructure
+namespace Repository.Infrastructure.Data
 {
     public sealed class DbContext
     {
@@ -18,7 +18,7 @@ namespace Repository.Sql.Infrastructure
             this.transaction = transaction;
         }
 
-        public async Task<T> SpScalarAsync<T>(string name, object param = null)
+        public async Task<T> SpFirstOrDefaultAsync<T>(string name, object param = null)
         {
             var r = await this.connection.QueryAsync<T>(name, param, this.transaction, commandType: CommandType.StoredProcedure);
             return r.SingleOrDefault();

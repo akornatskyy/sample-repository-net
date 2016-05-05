@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Configuration;
+using System.Threading.Tasks;
 
 using Microsoft.Practices.Unity;
 
@@ -16,14 +17,16 @@ namespace Repository
 
         private static void UseCase(string email)
         {
-            var c = UnityConfig.Register(UnityConfig.Mock);
-            var facade = (Facade)c.Resolve(typeof(Facade));
+            using (var c = UnityConfig.Register(ConfigurationManager.AppSettings["Repository.Strategy"]))
+            {
+                var facade = (Facade)c.Resolve(typeof(Facade));
 
-            // Avoid concurrency for unit of work, underlying db connection
-            // does not support MultipleActiveResultSets.
-            // Task.WaitAll(facade.HasUser(email), facade.EnsureUser(email));
-            Task.WaitAll(facade.HasUser(email));
-            Task.WaitAll(facade.EnsureUser(email));
+                // Avoid concurrency for unit of work, underlying db connection
+                // does not support MultipleActiveResultSets.
+                // Task.WaitAll(facade.HasUser(email), facade.EnsureUser(email));
+                Task.WaitAll(facade.HasUser(email));
+                Task.WaitAll(facade.EnsureUser(email));
+            }
         }
 
         private class Facade

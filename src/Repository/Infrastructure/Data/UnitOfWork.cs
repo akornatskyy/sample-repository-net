@@ -1,8 +1,6 @@
 ﻿using System.Data;
 
-using Repository.Infrastructure;
-
-namespace Repository.Sql.Infrastructure
+namespace Repository.Infrastructure.Data
 {
     public sealed class UnitOfWork : AbstractUnitOfWork
     {

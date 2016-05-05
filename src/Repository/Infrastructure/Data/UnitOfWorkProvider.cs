@@ -1,27 +1,25 @@
 ﻿using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-using Repository.Infrastructure;
-
-namespace Repository.Sql.Infrastructure
+namespace Repository.Infrastructure.Data
 {
     public sealed class UnitOfWorkProvider : IUnitOfWorkProvider
     {
+        private readonly IDbConnectionFactory connectionFactory;
         private readonly ContextAccessor accessor;
 
-        public UnitOfWorkProvider(ContextAccessor accessor)
+        public UnitOfWorkProvider(IDbConnectionFactory connectionFactory, ContextAccessor accessor)
         {
+            this.connectionFactory = connectionFactory;
             this.accessor = accessor;
         }
 
         public async Task<IUnitOfWork> Create(string name, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
             Debug.Assert(this.accessor.Context == null, "this.accessor.Context == null");
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings[name].ConnectionString);
-            await connection.OpenAsync();
+            var connection = await this.connectionFactory.Create(ConfigurationManager.ConnectionStrings[name].ConnectionString);
             return new UnitOfWork(connection, this.accessor, isolationLevel);
         }
     }
