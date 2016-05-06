@@ -4,7 +4,9 @@
 
 A simple repository pattern for .NET.
 
-## Setup Database
+## Setup
+
+### Database
 
 Create *sample* database. Add users *sample-ro* and *sample-rw*.
 
@@ -17,3 +19,8 @@ PostgreSQL:
 
 	cd build
 	DbUp.Postgresql.cmd
+
+### Strategy
+
+There are three available repository strategies: mock,
+sql and pgsql. See option `Repository.Strategy` in  *app.settings* file.
