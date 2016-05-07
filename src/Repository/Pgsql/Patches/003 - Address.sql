@@ -1,6 +1,6 @@
 ﻿CREATE TABLE membership.address (
 	user_id INTEGER NOT NULL,
-	modified_on TIMESTAMP NOT NULL DEFAULT NOW(),
+	modified_on TIMESTAMP WITH TIME ZONE NOT NULL,
 	address_line_1 VARCHAR(150) NOT NULL DEFAULT '',
 	address_line_2 VARCHAR(150) NOT NULL DEFAULT '',
 	address_line_3 VARCHAR(150) NOT NULL DEFAULT '',

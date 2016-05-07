@@ -1,7 +1,7 @@
 ﻿CREATE TABLE membership.person (
 	user_id INTEGER NOT NULL,
 	gender_id INTEGER NOT NULL DEFAULT 0,
-	modified_on TIMESTAMP NOT NULL DEFAULT NOW(),
+	modified_on TIMESTAMP WITH TIME ZONE NOT NULL,
 	firstname VARCHAR(150) NOT NULL DEFAULT '',
 	lastname VARCHAR(150) NOT NULL DEFAULT '',
 	date_of_birth DATE NULL,
