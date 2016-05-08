@@ -97,6 +97,8 @@
     <Content Include="Pgsql\Patches\003 - Address.sql" />
     <Content Include="Pgsql\Patches\004 - Gender.sql" />
     <Content Include="Pgsql\Patches\005 - Person.sql" />
+    <Content Include="Pgsql\Programmability\AddUser.sql" />
+    <Content Include="Pgsql\Programmability\HasUser.sql" />
     <Content Include="Sql\Patches\001 - Schema.sql" />
     <Content Include="Sql\Patches\002 - User.sql" />
     <Content Include="Sql\Patches\003 - Address.sql" />
@@ -112,9 +114,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pgsql\Programmability\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\StyleCop.MSBuild.4.7.50.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\..\packages\StyleCop.MSBuild.4.7.50.0\build\StyleCop.MSBuild.Targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
