@@ -8,7 +8,7 @@ ALTER PROCEDURE [Membership].[HasUser]
 )
 AS
 BEGIN
-	SELECT 1 FROM [Membership].[User]
+	SELECT Id FROM [Membership].[User]
 	WHERE Email = @Email	
 END
 GO
